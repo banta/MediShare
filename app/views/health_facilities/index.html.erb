@@ -1,0 +1,45 @@
+<h1>Listing health_facilities</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Hmis</th>
+    <th>Province</th>
+    <th>District</th>
+    <th>Division</th>
+    <th>Location</th>
+    <th>Sub location</th>
+    <th>Srm</th>
+    <th>Type</th>
+    <th>Agency</th>
+    <th>Latitude</th>
+    <th>Longitude</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @health_facilities.each do |health_facility| %>
+  <tr>
+    <td><%= health_facility.name %></td>
+    <td><%= health_facility.hmis %></td>
+    <td><%= health_facility.province %></td>
+    <td><%= health_facility.district %></td>
+    <td><%= health_facility.division %></td>
+    <td><%= health_facility.location %></td>
+    <td><%= health_facility.sub_location %></td>
+    <td><%= health_facility.srm %></td>
+    <td><%= health_facility.type %></td>
+    <td><%= health_facility.agency %></td>
+    <td><%= health_facility.latitude %></td>
+    <td><%= health_facility.longitude %></td>
+    <td><%= link_to 'Show', health_facility %></td>
+    <td><%= link_to 'Edit', edit_health_facility_path(health_facility) %></td>
+    <td><%= link_to 'Destroy', health_facility, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Health facility', new_health_facility_path %>

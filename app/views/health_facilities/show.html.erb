@@ -1,0 +1,65 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @health_facility.name %>
+</p>
+
+<p>
+  <b>Hmis:</b>
+  <%= @health_facility.hmis %>
+</p>
+
+<p>
+  <b>Province:</b>
+  <%= @health_facility.province %>
+</p>
+
+<p>
+  <b>District:</b>
+  <%= @health_facility.district %>
+</p>
+
+<p>
+  <b>Division:</b>
+  <%= @health_facility.division %>
+</p>
+
+<p>
+  <b>Location:</b>
+  <%= @health_facility.location %>
+</p>
+
+<p>
+  <b>Sub location:</b>
+  <%= @health_facility.sub_location %>
+</p>
+
+<p>
+  <b>Srm:</b>
+  <%= @health_facility.srm %>
+</p>
+
+<p>
+  <b>Type:</b>
+  <%= @health_facility.type %>
+</p>
+
+<p>
+  <b>Agency:</b>
+  <%= @health_facility.agency %>
+</p>
+
+<p>
+  <b>Latitude:</b>
+  <%= @health_facility.latitude %>
+</p>
+
+<p>
+  <b>Longitude:</b>
+  <%= @health_facility.longitude %>
+</p>
+
+
+<%= link_to 'Edit', edit_health_facility_path(@health_facility) %> |
+<%= link_to 'Back', health_facilities_path %>
