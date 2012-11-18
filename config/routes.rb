@@ -1,6 +1,4 @@
 Medishare::Application.routes.draw do
-  resources :health_facilities
-
   authenticated :user do
     root :to => 'home#index'
   end
