@@ -5,5 +5,4 @@
 jQuery ->
   $('#health_facilities').dataTable
     sPaginationType: "full_numbers"
-	bJQueryUI: true
 	
