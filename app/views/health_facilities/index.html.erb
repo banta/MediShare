@@ -1,45 +1,58 @@
-<h1>Listing health_facilities</h1>
-
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Hmis</th>
-    <th>Province</th>
-    <th>District</th>
-    <th>Division</th>
-    <th>Location</th>
-    <th>Sub location</th>
-    <th>Srm</th>
-    <th>Facility type</th>
-    <th>Agency</th>
-    <th>Latitude</th>
-    <th>Longitude</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @health_facilities.each do |health_facility| %>
-  <tr>
-    <td><%= health_facility.name %></td>
-    <td><%= health_facility.hmis %></td>
-    <td><%= health_facility.province %></td>
-    <td><%= health_facility.district %></td>
-    <td><%= health_facility.division %></td>
-    <td><%= health_facility.location %></td>
-    <td><%= health_facility.sub_location %></td>
-    <td><%= health_facility.srm %></td>
-    <td><%= health_facility.facility_type %></td>
-    <td><%= health_facility.agency %></td>
-    <td><%= health_facility.latitude %></td>
-    <td><%= health_facility.longitude %></td>
-    <td><%= link_to 'Show', health_facility %></td>
-    <td><%= link_to 'Edit', edit_health_facility_path(health_facility) %></td>
-    <td><%= link_to 'Destroy', health_facility, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
+<%- model_class = HealthFacility -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:name) %></th>
+      <th><%= model_class.human_attribute_name(:hmis) %></th>
+      <th><%= model_class.human_attribute_name(:province) %></th>
+      <th><%= model_class.human_attribute_name(:district) %></th>
+      <th><%= model_class.human_attribute_name(:division) %></th>
+      <th><%= model_class.human_attribute_name(:location) %></th>
+      <th><%= model_class.human_attribute_name(:sub_location) %></th>
+      <th><%= model_class.human_attribute_name(:srm) %></th>
+      <th><%= model_class.human_attribute_name(:facility_type) %></th>
+      <th><%= model_class.human_attribute_name(:agency) %></th>
+      <th><%= model_class.human_attribute_name(:latitude) %></th>
+      <th><%= model_class.human_attribute_name(:longitude) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @health_facilities.each do |health_facility| %>
+      <tr>
+        <td><%= link_to health_facility.id, health_facility_path(health_facility) %></td>
+        <td><%= health_facility.name %></td>
+        <td><%= health_facility.hmis %></td>
+        <td><%= health_facility.province %></td>
+        <td><%= health_facility.district %></td>
+        <td><%= health_facility.division %></td>
+        <td><%= health_facility.location %></td>
+        <td><%= health_facility.sub_location %></td>
+        <td><%= health_facility.srm %></td>
+        <td><%= health_facility.facility_type %></td>
+        <td><%= health_facility.agency %></td>
+        <td><%= health_facility.latitude %></td>
+        <td><%= health_facility.longitude %></td>
+        <td><%=l health_facility.created_at %></td>
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_health_facility_path(health_facility), :class => 'btn btn-mini' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      health_facility_path(health_facility),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
 </table>
 
-<br />
-
-<%= link_to 'New Health facility', new_health_facility_path %>
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_health_facility_path,
+            :class => 'btn btn-primary' %>
