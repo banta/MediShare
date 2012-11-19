@@ -6,7 +6,7 @@ class HealthFacilitiesController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @health_facilities }
+      format.json { render json: HealthFacility.new(view_context) }
     end
   end
 

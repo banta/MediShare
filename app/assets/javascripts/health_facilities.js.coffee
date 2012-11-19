@@ -6,3 +6,6 @@ jQuery ->
   $('#health_facilities').dataTable
     sPaginationType: "full_numbers"
     bJQueryUI: true
+    bProcessing: true
+    bServerSide: true
+    sAjaxSource: $('#health_facilities').data('source')

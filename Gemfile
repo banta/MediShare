@@ -9,6 +9,7 @@ group :assets do
   gem 'jquery-datatables-rails', github: 'rweng/jquery-datatables-rails'
   gem 'jquery-ui-rails'
 end
+gem 'will_paginate'
 gem 'jquery-rails'
 gem "thin", ">= 1.5.0"
 gem "rspec-rails", ">= 2.11.4", :group => [:development, :test]
