@@ -3,4 +3,6 @@
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
 jQuery ->
-  $('#health_facilities').dataTable()
+  $('#health_facilities').dataTable
+    sPaginationType: "full_numbers"
+	
