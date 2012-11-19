@@ -1,5 +1,6 @@
 class HealthFacility < ActiveRecord::Base
-  attr_accessible :agency, :district, :division, :facility_type, :hmis, :latitude, :location, :longitude, :name, :province, :srm, :sub_location
+  attr_accessible :agency, :district, :division, :facility_type, :hmis, :latitude, :location, :longitude, :name, :province, :srm,
+  :sub_location
   delegate :params, :h, :link_to, :number_to_currency, to: :@view
 
     def initialize(view)
@@ -40,7 +41,9 @@ class HealthFacility < ActiveRecord::Base
       health_facilities = HealthFacility.order("#{sort_column} #{sort_direction}")
       health_facilities = health_facilities.page(page).per_page(per_page)
       if params[:sSearch].present?
-        health_facilities = health_facilities.where("name like :search or location like :search", search: "%#{params[:sSearch]}%")
+        health_facilities = health_facilities.where("name ilike :search or province ilike :search or district ilike :search
+        or division ilike :search or location ilike :search or sub_location ilike :search or srm ilike :search or agency ilike :search",
+         search: "%#{params[:sSearch]}%")
       end
       health_facilities
     end
