@@ -2,10 +2,9 @@
 <div class="page-header">
   <h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
 </div>
-<table id="health_facilities">
+<table id="health_facilities" class="display" >
   <thead>
     <tr>
-      <th><%= model_class.human_attribute_name(:id) %></th>
       <th><%= model_class.human_attribute_name(:name) %></th>
       <th><%= model_class.human_attribute_name(:hmis) %></th>
       <th><%= model_class.human_attribute_name(:province) %></th>
@@ -24,8 +23,7 @@
   <tbody>
     <% @health_facilities.each do |health_facility| %>
       <tr>
-        <td><%= link_to health_facility.id, health_facility_path(health_facility) %></td>
-        <td><%= health_facility.name %></td>
+        <td><%= link_to health_facility.name, health_facility_path(health_facility) %></td>
         <td><%= health_facility.hmis %></td>
         <td><%= health_facility.province %></td>
         <td><%= health_facility.district %></td>
