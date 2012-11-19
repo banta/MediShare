@@ -2,7 +2,7 @@
 <div class="page-header">
   <h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
 </div>
-<table id="health_facilities">
+<table id="health_facilities" class="display">
   <thead>
     <tr>
       <th><%= model_class.human_attribute_name(:id) %></th>
@@ -18,7 +18,6 @@
       <th><%= model_class.human_attribute_name(:agency) %></th>
       <th><%= model_class.human_attribute_name(:latitude) %></th>
       <th><%= model_class.human_attribute_name(:longitude) %></th>
-      <th><%= model_class.human_attribute_name(:created_at) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
@@ -38,7 +37,6 @@
         <td><%= health_facility.agency %></td>
         <td><%= health_facility.latitude %></td>
         <td><%= health_facility.longitude %></td>
-        <td><%=l health_facility.created_at %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_health_facility_path(health_facility), :class => 'btn btn-mini' %>
