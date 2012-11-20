@@ -7,5 +7,4 @@ jQuery ->
     sPaginationType: "full_numbers"
     bJQueryUI: true
     bProcessing: true
-    bServerSide: true
     sAjaxSource: $('#bednets_and_illinesses').data('source')

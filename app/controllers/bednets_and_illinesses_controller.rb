@@ -6,7 +6,19 @@ class BednetsAndIllinessesController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: BednetsAndIlliness.new(view_context) }
+      format.json do
+            data = []
+            @bednets_and_illinesses.each do |bednets_and_illiness|
+              data << [
+                "#{view_context.link_to(bednets_and_illiness.county, bednets_and_illiness)}".html_safe,
+                  bednets_and_illiness.fever_or_malaria,
+                  bednets_and_illiness.under_net
+              ]
+            end
+            data = data.to_json
+            data = "{ \"aaData\": " + data + "}"
+            render :json => data, :layout => false
+          end
     end
   end
 
