@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>County:</b>
+  <%= @bednets_and_illiness.county %>
+</p>
+
+<p>
+  <b>Under net:</b>
+  <%= @bednets_and_illiness.under_net %>
+</p>
+
+<p>
+  <b>Fever or malaria:</b>
+  <%= @bednets_and_illiness.fever_or_malaria %>
+</p>
+
+<p>
+  <b>Latitude:</b>
+  <%= @bednets_and_illiness.latitude %>
+</p>
+
+<p>
+  <b>Longitude:</b>
+  <%= @bednets_and_illiness.longitude %>
+</p>
+
+
+<%= link_to 'Edit', edit_bednets_and_illiness_path(@bednets_and_illiness) %> |
+<%= link_to 'Back', bednets_and_illinesses_path %>

@@ -1,0 +1,2 @@
+module BednetsAndIllinessesHelper
+end

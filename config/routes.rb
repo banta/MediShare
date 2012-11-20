@@ -1,4 +1,6 @@
 Medishare::Application.routes.draw do
+  resources :bednets_and_illinesses
+
   resources :health_facilities
 
   authenticated :user do

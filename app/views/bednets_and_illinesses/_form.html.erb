@@ -1,0 +1,15 @@
+<%= simple_form_for(@bednets_and_illiness) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :county %>
+    <%= f.input :under_net %>
+    <%= f.input :fever_or_malaria %>
+    <%= f.input :latitude %>
+    <%= f.input :longitude %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
