@@ -1,31 +1,28 @@
-<h1>Listing bednets_and_illinesses</h1>
+<%- model_class = BednetsAndIlliness -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:county) %></th>
+      <th><%= model_class.human_attribute_name(:under_net) %></th>
+      <th><%= model_class.human_attribute_name(:fever_or_malaria) %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @bednets_and_illinesses.each do |bednets_and_illiness| %>
+      <tr>
+        <td><%= link_to bednets_and_illiness.id, bednets_and_illiness_path(bednets_and_illiness) %></td>
+        <td><%= bednets_and_illiness.county %></td>
+        <td><%= bednets_and_illiness.under_net %></td>
+        <td><%= bednets_and_illiness.fever_or_malaria %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table><br />
 
-<table>
-  <tr>
-    <th>County</th>
-    <th>Under net</th>
-    <th>Fever or malaria</th>
-    <th>Latitude</th>
-    <th>Longitude</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @bednets_and_illinesses.each do |bednets_and_illiness| %>
-  <tr>
-    <td><%= bednets_and_illiness.county %></td>
-    <td><%= bednets_and_illiness.under_net %></td>
-    <td><%= bednets_and_illiness.fever_or_malaria %></td>
-    <td><%= bednets_and_illiness.latitude %></td>
-    <td><%= bednets_and_illiness.longitude %></td>
-    <td><%= link_to 'Show', bednets_and_illiness %></td>
-    <td><%= link_to 'Edit', edit_bednets_and_illiness_path(bednets_and_illiness) %></td>
-    <td><%= link_to 'Destroy', bednets_and_illiness, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
-</table>
-
-<br />
-
-<%= link_to 'New Bednets and illiness', new_bednets_and_illiness_path %>
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_bednets_and_illiness_path,
+            :class => 'btn btn-primary' %>

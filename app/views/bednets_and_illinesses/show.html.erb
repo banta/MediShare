@@ -1,30 +1,29 @@
-<p id="notice"><%= notice %></p>
+<%- model_class = BednetsAndIllines -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human %></h1>
+</div>
 
-<p>
-  <b>County:</b>
-  <%= @bednets_and_illiness.county %>
-</p>
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:county) %>:</strong></dt>
+  <dd><%= @bednets_and_illiness.county %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:under_net) %>:</strong></dt>
+  <dd><%= @bednets_and_illiness.under_net %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:fever_or_malaria) %>:</strong></dt>
+  <dd><%= @bednets_and_illiness.fever_or_malaria %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:latitude) %>:</strong></dt>
+  <dd><%= @bednets_and_illiness.latitude %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:longitude) %>:</strong></dt>
+  <dd><%= @bednets_and_illiness.longitude %></dd>
+</dl>
 
-<p>
-  <b>Under net:</b>
-  <%= @bednets_and_illiness.under_net %>
-</p>
-
-<p>
-  <b>Fever or malaria:</b>
-  <%= @bednets_and_illiness.fever_or_malaria %>
-</p>
-
-<p>
-  <b>Latitude:</b>
-  <%= @bednets_and_illiness.latitude %>
-</p>
-
-<p>
-  <b>Longitude:</b>
-  <%= @bednets_and_illiness.longitude %>
-</p>
-
-
-<%= link_to 'Edit', edit_bednets_and_illiness_path(@bednets_and_illiness) %> |
-<%= link_to 'Back', bednets_and_illinesses_path %>
+<div class="form-actions">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              bednets_and_illinesses_path, :class => 'btn'  %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_bednets_and_illiness_path(@bednets_and_illiness), :class => 'btn' %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              bednets_and_illiness_path(@bednets_and_illiness),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>
+</div>

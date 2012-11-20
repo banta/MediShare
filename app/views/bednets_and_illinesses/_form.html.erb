@@ -1,15 +1,12 @@
-<%= simple_form_for(@bednets_and_illiness) do |f| %>
-  <%= f.error_notification %>
-
-  <div class="form-inputs">
-    <%= f.input :county %>
-    <%= f.input :under_net %>
-    <%= f.input :fever_or_malaria %>
-    <%= f.input :latitude %>
-    <%= f.input :longitude %>
-  </div>
-
+<%= simple_form_for @bednets_and_illiness, :html => { :class => 'form-horizontal' } do |f| %>
+  <%= f.input :county %>
+  <%= f.input :under_net %>
+  <%= f.input :fever_or_malaria %>
+  <%= f.input :latitude %>
+  <%= f.input :longitude %>
   <div class="form-actions">
-    <%= f.button :submit %>
+    <%= f.button :submit, :class => 'btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                bednets_and_illinesses_path, :class => 'btn' %>
   </div>
 <% end %>
