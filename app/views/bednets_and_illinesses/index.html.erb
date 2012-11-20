@@ -2,7 +2,7 @@
 <div class="page-header">
   <h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
 </div>
-<table class="table table-striped">
+<table id="bednets_and_illinesses" class="display">
   <thead>
     <tr>
       <th><%= model_class.human_attribute_name(:id) %></th>
@@ -12,14 +12,6 @@
     </tr>
   </thead>
   <tbody>
-    <% @bednets_and_illinesses.each do |bednets_and_illiness| %>
-      <tr>
-        <td><%= link_to bednets_and_illiness.id, bednets_and_illiness_path(bednets_and_illiness) %></td>
-        <td><%= bednets_and_illiness.county %></td>
-        <td><%= bednets_and_illiness.under_net %></td>
-        <td><%= bednets_and_illiness.fever_or_malaria %></td>
-      </tr>
-    <% end %>
   </tbody>
 </table><br />
 
