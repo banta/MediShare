@@ -23,8 +23,7 @@ class BednetsAndIlliness < ActiveRecord::Base
     def data
       bednets_and_illinesses.map do |bednets_and_illiness|
         [
-          link_to(bednets_and_illiness.name, bednets_and_illiness),
-          h(bednets_and_illiness.county),
+          link_to(bednets_and_illiness.county, bednets_and_illiness),
           h(bednets_and_illiness.fever_or_malaria),
           h(bednets_and_illiness.under_net)
         ]
