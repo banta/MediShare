@@ -2,10 +2,9 @@
 <div class="page-header">
   <h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
 </div>
-<table id="bednets_and_illinesses" class="display">
+<table id="bednets_and_illinesses" class="display" data-source="<%= bednets_and_illinesses_url(format: "json") %>" >
   <thead>
     <tr>
-      <th><%= model_class.human_attribute_name(:id) %></th>
       <th><%= model_class.human_attribute_name(:county) %></th>
       <th><%= model_class.human_attribute_name(:under_net) %></th>
       <th><%= model_class.human_attribute_name(:fever_or_malaria) %></th>
