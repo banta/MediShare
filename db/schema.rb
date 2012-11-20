@@ -11,7 +11,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121118184246) do
+ActiveRecord::Schema.define(:version => 20121120031113) do
+
+  create_table "bednets_and_illinesses", :force => true do |t|
+    t.string   "county"
+    t.float    "under_net"
+    t.float    "fever_or_malaria"
+    t.string   "latitude"
+    t.string   "longitude"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+  end
 
   create_table "health_facilities", :force => true do |t|
     t.string   "name"
