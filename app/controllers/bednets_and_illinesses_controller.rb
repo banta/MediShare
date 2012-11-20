@@ -6,7 +6,7 @@ class BednetsAndIllinessesController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @bednets_and_illinesses }
+      format.json { render json: BednetsAndIlliness.new(view_context) }
     end
   end
 
