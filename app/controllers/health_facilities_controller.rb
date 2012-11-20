@@ -6,7 +6,24 @@ class HealthFacilitiesController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: HealthFacility.new(view_context) }
+      format.json do
+          data = []
+          @health_facilities.each do |health_facility|
+            data << [
+              "#{view_context.link_to(health_facility.name, health_facility)}".html_safe,
+                health_facility.province,
+                health_facility.district,
+                health_facility.division,
+                health_facility.location,
+                health_facility.sub_location,
+                health_facility.srm,
+                health_facility.agency
+            ]
+          end
+          data = data.to_json
+          data = "{ \"aaData\": " + data + "}"
+          render :json => data, :layout => false
+        end
     end
   end
 
