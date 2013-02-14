@@ -1,4 +1,6 @@
 class BednetsAndIllinessesController < ApplicationController
+  before_filter :authenticate_user!
+  load_and_authorize_resource
   # GET /bednets_and_illinesses
   # GET /bednets_and_illinesses.json
   def index

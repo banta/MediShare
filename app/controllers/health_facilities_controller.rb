@@ -1,4 +1,6 @@
 class HealthFacilitiesController < ApplicationController
+  before_filter :authenticate_user!
+  load_and_authorize_resource
   # GET /health_facilities
   # GET /health_facilities.json
   def index
