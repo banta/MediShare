@@ -3,32 +3,46 @@
   <h1><%=t '.title', :default => model_class.model_name.human %></h1>
 </div>
 
-<dl class="dl-horizontal">
-  <dt><strong><%= model_class.human_attribute_name(:name) %>:</strong></dt>
-  <dd><%= @health_facility.name %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:hmis) %>:</strong></dt>
-  <dd><%= @health_facility.hmis %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:province) %>:</strong></dt>
-  <dd><%= @health_facility.province %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:district) %>:</strong></dt>
-  <dd><%= @health_facility.district %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:division) %>:</strong></dt>
-  <dd><%= @health_facility.division %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:location) %>:</strong></dt>
-  <dd><%= @health_facility.location %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:sub_location) %>:</strong></dt>
-  <dd><%= @health_facility.sub_location %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:srm) %>:</strong></dt>
-  <dd><%= @health_facility.srm %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:facility_type) %>:</strong></dt>
-  <dd><%= @health_facility.facility_type %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:agency) %>:</strong></dt>
-  <dd><%= @health_facility.agency %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:latitude) %>:</strong></dt>
-  <dd><%= @health_facility.latitude %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:longitude) %>:</strong></dt>
-  <dd><%= @health_facility.longitude %></dd>
-</dl>
+<table class="table table-striped table-condensed">
+  <thead>
+    <th style="width: 100px;"></th>
+    <th style="width: 150px;"></th>
+    <th style="width: 100px;"></th>
+    <th></th>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong><%= model_class.human_attribute_name(:name) %>:</strong></td><td><%= @health_facility.name %></td>
+      <td><strong><%= model_class.human_attribute_name(:hmis) %>:</strong></td><td><%= @health_facility.hmis %></td>
+    </tr>
+
+    <tr>
+      <td><strong><%= model_class.human_attribute_name(:province) %>:</strong></td><td><%= @health_facility.province %></td>
+      <td><strong><%= model_class.human_attribute_name(:district) %>:</strong></td><td><%= @health_facility.district %></td>
+    </tr>
+
+    <tr>
+      <td><strong><%= model_class.human_attribute_name(:division) %>:</strong></td><td><%= @health_facility.division %></td>
+      <td><strong><%= model_class.human_attribute_name(:location) %>:</strong></td><td><%= @health_facility.location %></td>
+    </tr>
+
+    <tr>
+      <td><strong><%= model_class.human_attribute_name(:sub_location) %>:</strong></td><td><%= @health_facility.sub_location %></td>
+      <td><strong><%= model_class.human_attribute_name(:srm) %>:</strong></td><td><%= @health_facility.srm %></td>
+    </tr>
+
+    <tr>
+      <td><strong><%= model_class.human_attribute_name(:facility_type) %>:</strong></td><td><%= @health_facility.facility_type %></td>
+      <td><strong><%= model_class.human_attribute_name(:agency) %>:</strong></td><td><%= @health_facility.agency %></td>
+    </tr>
+
+    <tr>
+      <td><strong><%= model_class.human_attribute_name(:latitude) %>:</strong></td><td><%= @health_facility.latitude %></td>
+      <td><strong><%= model_class.human_attribute_name(:longitude) %>:</strong></td><td><%= @health_facility.longitude %></td>
+    </tr>
+  </tbody>
+</table>
+
 
 <div class="form-actions">
   <%= link_to t('.back', :default => t("helpers.links.back")),
