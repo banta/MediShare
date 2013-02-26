@@ -3,12 +3,19 @@ gem 'rails', '3.2.8'
 gem 'pg'
 gem 'twitter-bootstrap-rails'
 gem "figaro", ">= 0.5.3"
+
+
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
   gem 'uglifier', '>= 1.0.3'
   gem 'jquery-datatables-rails'
   gem 'jquery-ui-rails'
+
+  #Better errors gems
+  gem "quiet_assets", ">= 1.0.1"
+  gem "better_errors", ">= 0.3.2"
+  gem "binding_of_caller", ">= 0.6.8"
 end
 
 gem 'geocoder', '>= 1.1.5'
