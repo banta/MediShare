@@ -3,6 +3,8 @@ gem 'rails', '3.2.8'
 gem 'pg'
 gem 'twitter-bootstrap-rails'
 gem "figaro", ">= 0.5.3"
+gem "country_select", ">= 1.1.3"
+
 
 
 group :assets do
