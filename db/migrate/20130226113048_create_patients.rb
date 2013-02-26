@@ -12,8 +12,10 @@ class CreatePatients < ActiveRecord::Migration
       t.string :occupation
       t.string :civil_status
       t.date :date_of_birth
+      t.references :health_facility
 
       t.timestamps
     end
+    add_index :patients, :health_facility_id
   end
 end
