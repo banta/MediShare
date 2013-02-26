@@ -1,21 +1,19 @@
-<%= simple_form_for(@patient) do |f| %>
-  <%= f.error_notification %>
-
-  <div class="form-inputs">
-    <%= f.input :names %>
-    <%= f.input :identification_number %>
-    <%= f.input :gender %>
-    <%= f.input :address %>
-    <%= f.input :town %>
-    <%= f.input :location %>
-    <%= f.input :phone %>
-    <%= f.input :country %>
-    <%= f.input :occupation %>
-    <%= f.input :civil_status %>
-    <%= f.input :date_of_birth %>
-  </div>
-
+<%= simple_form_for @patient, :html => { :class => 'form-horizontal' } do |f| %>
+  <%= f.input :names %>
+  <%= f.input :identification_number %>
+  <%= f.input :gender %>
+  <%= f.input :address %>
+  <%= f.input :town %>
+  <%= f.input :location %>
+  <%= f.input :phone %>
+  <%= f.input :country %>
+  <%= f.input :occupation %>
+  <%= f.input :civil_status %>
+  <%= f.input :date_of_birth %>
+  <%= f.input :health_facility_id %>
   <div class="form-actions">
-    <%= f.button :submit %>
+    <%= f.button :submit, :class => 'btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                patients_path, :class => 'btn' %>
   </div>
 <% end %>
