@@ -1,0 +1,21 @@
+<%= simple_form_for(@patient) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :names %>
+    <%= f.input :identification_number %>
+    <%= f.input :gender %>
+    <%= f.input :address %>
+    <%= f.input :town %>
+    <%= f.input :location %>
+    <%= f.input :phone %>
+    <%= f.input :country %>
+    <%= f.input :occupation %>
+    <%= f.input :civil_status %>
+    <%= f.input :date_of_birth %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
