@@ -7,6 +7,7 @@ class Ability
       can :manage, :all
     elsif user.has_role? :user
         can [:show, :update, :destroy], HealthFacility, :user_id => user.id
+        can :manage, Patient
     end
     # Define abilities for the passed in user here. For example:
     #
