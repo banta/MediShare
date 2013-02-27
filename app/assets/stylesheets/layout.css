@@ -4,7 +4,7 @@ html,body{height:100%;}
 #main{ padding-top: 40px;overflow:auto;	padding-bottom:150px; /* this needs to be bigger than footer height*/}
 
 .map-img {border: 0 none; height: auto; width: 100%; vertical-align: middle;}
-.footer{clear: both; height: 150px; padding-top: 10px; padding-bottom: 10px; color: #999999; position: relative; margin-top: -50px;}
+.footer{clear: both; padding-top: 10px; padding-bottom: 10px; color: #999999; position: relative; margin-top: -50px;}
 .footer > span {height: 4px; position: absolute; top: 0; width: 20%;}
 .footer > .f1 {background: none repeat scroll 0 0 #F3A01E; left: 0;}
 .footer > .f2 {background: none repeat scroll 0 0 #D05D2A; left: 20%;}
