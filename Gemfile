@@ -14,6 +14,7 @@ gem "devise", ">= 2.1.2"
 gem "cancan", ">= 1.6.8"
 gem "rolify", ">= 3.2.0"
 gem "simple_form", ">= 2.0.4"
+gem 'will_paginate-bootstrap'
 
 
 group :development do
