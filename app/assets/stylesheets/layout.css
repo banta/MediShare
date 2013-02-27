@@ -1,5 +1,5 @@
 /* styles for layout */
-html,body{height:100%;}
+html,body{height:100%;font-size: 13px;}
 #wrap{ min-height: 100%; height: auto !important; height: 100%; margin: 0 auto -30px;}
 #main{ padding-top: 40px;overflow:auto;	padding-bottom:150px; /* this needs to be bigger than footer height*/}
 
