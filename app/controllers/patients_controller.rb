@@ -44,6 +44,9 @@ class PatientsController < ApplicationController
   # POST /patients.json
   def create
     @patient = Patient.new(params[:patient])
+    if current_user.has_role? :user
+      @patients.health_facility_id = current_user.health_facilities.first.id
+    end
 
     respond_to do |format|
       if @patient.save
