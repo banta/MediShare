@@ -12,6 +12,7 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
   gem 'jquery-datatables-rails'
   gem 'jquery-ui-rails'
+  gem 'twitter-bootstrap-rails'
 
   #Better errors gems
   gem "quiet_assets", ">= 1.0.1"
