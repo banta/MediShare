@@ -44,9 +44,7 @@
 </table>
 
 
-<div class="form-actions">
-  <%= link_to t('.back', :default => t("helpers.links.back")),
-              :back, :class => 'btn'  %>
-  <%= link_to t('.edit', :default => t("helpers.links.edit")),
-              edit_health_facility_path(@health_facility), :class => 'btn btn-primary' %>
-</div>
+<%= link_to t('.back', :default => t("helpers.links.back")),
+            :back, :class => 'btn'  %>
+<%= link_to t('.edit', :default => t("helpers.links.edit")),
+            edit_health_facility_path(@health_facility), :class => 'btn btn-primary' %>
