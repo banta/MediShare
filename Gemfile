@@ -3,6 +3,8 @@ gem 'rails', '3.2.8'
 gem 'pg'
 gem "figaro", ">= 0.5.3"
 gem "country_select", ">= 1.1.3"
+gem 'bootstrap-datepicker-rails', :require => 'bootstrap-datepicker-rails',
+                              :git => 'git://github.com/Nerian/bootstrap-datepicker-rails.git'
 
 
 
