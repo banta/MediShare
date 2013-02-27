@@ -1,7 +1,10 @@
 class PatientsController < ApplicationController
+  before_filter :authenticate_user!
+  load_and_authorize_resource
   # GET /patients
   # GET /patients.json
   def index
+    #if current_user
     @patients = Patient.all
 
     respond_to do |format|
