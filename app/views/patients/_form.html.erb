@@ -1,16 +1,20 @@
 <%= simple_form_for @patient, :html => { :class => 'form-horizontal' } do |f| %>
   <%= f.input :names %>
   <%= f.input :identification_number %>
-  <%= f.input :gender %>
+  <%= f.input :gender, :prompt => "Select gender", :collection => [["Male","M"], ["Female","F"]] %>
   <%= f.input :address %>
   <%= f.input :town %>
   <%= f.input :location %>
   <%= f.input :phone %>
   <%= f.input :country %>
   <%= f.input :occupation %>
-  <%= f.input :civil_status %>
+  <%= f.input :civil_status, :prompt => "Select status", :collection => [["Single","S"], ["Married","M"], ["Widowed","W"]] %>
   <%= f.input :date_of_birth %>
-  <%= f.input :health_facility_id %>
+  <% if current_user.has_role? :user %>
+    <%= f.input :health_facility_id, :prompt => "Select health facility", :collection => [[current_user.health_facility.name, current_user.health_facility.id]] %>
+  <% elsif current_user.has_role? :admin  %>
+    <%= f.input :health_facility_id, :prompt => "Select health facility", :collection => HealthFacility.all.collect{|c| [c.name, c.id]} %>
+  <% end %>
   <div class="form-actions">
     <%= f.button :submit, :class => 'btn-primary' %>
     <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
