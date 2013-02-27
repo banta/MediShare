@@ -33,6 +33,7 @@ class HealthFacilitiesController < ApplicationController
   # GET /health_facilities/1.json
   def show
     @health_facility = HealthFacility.find(params[:id])
+    @patients = @health_facility.patients
 
     respond_to do |format|
       format.html # show.html.erb
