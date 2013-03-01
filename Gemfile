@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.8'
-gem 'pg'
+gem 'mysql2'
 gem "figaro", ">= 0.5.3"
 gem "country_select", ">= 1.1.3"
 gem 'bootstrap-datepicker-rails', :require => 'bootstrap-datepicker-rails',
@@ -15,6 +15,7 @@ gem "cancan", ">= 1.6.8"
 gem "rolify", ">= 3.2.0"
 gem "simple_form", ">= 2.0.4"
 gem 'will_paginate-bootstrap'
+gem 'thinking-sphinx'
 
 
 group :development do
