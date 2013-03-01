@@ -16,11 +16,6 @@ gem "rolify", ">= 3.2.0"
 gem "simple_form", ">= 2.0.4"
 gem 'will_paginate-bootstrap'
 
-# Search
-gem 'sunspot_rails'
-gem 'sunspot_solr' # optional pre-packaged Solr distribution for use in development
-gem 'progress_bar'
-
 
 group :development do
   gem "hub", ">= 1.10.2", :require => nil
