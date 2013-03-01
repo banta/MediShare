@@ -5,8 +5,8 @@ namespace :opendata do
     
   desc "Get all the health facilities"
   task :health_facilities => :environment do
-      if HealthFacility.count.zero?
-          health_facilities_json = open("http://kenya.socrata.com/api/views/89zb-g69r/rows.json")
+      #if HealthFacility.count.zero?
+          health_facilities_json = open("https://opendata.go.ke/api/views/e53f-gps5/rows.json?accessType=DOWNLOAD")
           data = JSON.parse(IO.read(health_facilities_json))["data"][0..8230]
       
           data.each do |hf|
@@ -28,6 +28,6 @@ namespace :opendata do
                   puts health_facility.name + " created." unless health_facility.name.nil?
               end
         end
-      end
+      #end
   end
 end
