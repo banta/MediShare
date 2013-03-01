@@ -10,11 +10,21 @@
       <li><%= link_to 'My Health Facility', health_facility_path(HealthFacility.find_by_user_id(current_user)) %></li>
       <li><%= link_to 'Patients', patients_path %></li>
     <% end %>
-    <li>
-    <%= link_to 'Logout', destroy_user_session_path, :method=>'delete' %>        
-    </li>
+  <% end %>
+</ul>
+
+<ul class="nav pull-right">
+  <% if user_signed_in? %>
+    <li><%= link_to "Welcome  #{current_user.name}!", "#" %></li>
+    <li><%= link_to 'Logout', destroy_user_session_path, :method=>'delete' %></li>
   <% else %>
     <li><%= link_to 'Login', new_user_session_path %></li>
     <li><%= link_to 'Sign up', new_user_registration_path %></li>
+  <% end %>
+</ul>
+
+<ul class="nav pull-right">
+  <%= form_tag patients_path, :class=>"navbar-search pull-left", :method => :get do %>
+    <%= text_field_tag :search, params[:search], :class=>"search-query", :placeholder=>"Search the patient" %>
   <% end %>
 </ul>
