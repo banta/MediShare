@@ -4,8 +4,25 @@ class PatientsController < ApplicationController
   # GET /patients
   # GET /patients.json
   def index
-    #if current_user
-    @patients = Patient.paginate(:per_page => 10, :page => params[:page])
+    if params[:search].present?
+      if current_user.has_role? :user
+        ids = Patient.search(params[:search]).collect{|c| c.id} #patients id
+
+        @patients = Patient.where(:health_facility_id => current_user.health_facility.id, :id => ids)
+        .paginate(:per_page => 10, :page => params[:page])
+      elsif current_user.has_role? :admin
+        ids = Patient.search(params[:search]).collect{|c| c.id} #patients id
+
+        @patients = Patient.where(:id => ids)
+        .paginate(:per_page => 10, :page => params[:page])
+      end  
+    else
+      if current_user.has_role? :user
+        @patients = Patient.where(:health_facility_id => current_user.health_facility.id).paginate(:per_page => 10, :page => params[:page])
+      elsif current_user.has_role? :admin
+        @patients = Patient.paginate(:per_page => 10, :page => params[:page])
+      end    
+    end
 
     respond_to do |format|
       format.html # index.html.erb
