@@ -74,3 +74,5 @@ pickle-email-*.html
 **.swp
 
 config/application.yml
+/db/sphinx/*
+*.sphinx.conf
