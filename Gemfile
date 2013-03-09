@@ -16,6 +16,7 @@ gem "rolify", ">= 3.2.0"
 gem "simple_form", ">= 2.0.4"
 gem 'will_paginate-bootstrap'
 gem 'thinking-sphinx'
+gem 'roo'
 
 
 group :development do
