@@ -3,7 +3,7 @@
   <% if user_signed_in? %>
     <li><%= link_to 'Edit account', edit_user_registration_path %></li>
     <% if current_user.has_role? :admin %>
-      <li><%= link_to 'Admin', users_path %></li>
+      <li><%= link_to 'Users', users_path %></li>
       <li><%= link_to 'Health Facilities', health_facilities_path %></li>
       <li><%= link_to 'Patients', patients_path %></li>
     <% elsif current_user.has_role? :user %>
