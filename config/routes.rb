@@ -1,5 +1,7 @@
 Medishare::Application.routes.draw do
-  resources :patients
+  resources :patients do
+  	collection { post :import }
+  end
 
   resources :bednets_and_illinesses
 
