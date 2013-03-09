@@ -100,4 +100,11 @@ class PatientsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+
+  #Other methods
+  def import
+    Patient.import(params[:file])
+    redirect_to patients_url, notice: "Patients imported successfully."
+  end
 end
