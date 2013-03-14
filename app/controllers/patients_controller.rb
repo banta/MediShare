@@ -104,7 +104,12 @@ class PatientsController < ApplicationController
 
   #Other methods
   def import
-    Patient.import(params[:file])
+    s = false
+    if current_user.has_role? :user
+      s = true
+    end
+    user = current_user
+    Patient.import(params[:file],user, s)
     redirect_to patients_url, notice: "Patients imported successfully."
   end
 end
