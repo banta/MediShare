@@ -4,7 +4,10 @@ class HealthFacilitiesController < ApplicationController
   # GET /health_facilities
   # GET /health_facilities.json
   def index
-    @health_facilities = HealthFacility
+    @health_facilities = HealthFacility.where(:source => nil)
+    .paginate(:per_page => 10, :page => params[:page])
+
+    @od_health_facilities = HealthFacility.where("source = ?", "opendata")
     .paginate(:per_page => 10, :page => params[:page])
 
     respond_to do |format|

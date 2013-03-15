@@ -3,46 +3,11 @@
   <h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
 </div>
 
-<%= will_paginate @health_facilities, :renderer => BootstrapPagination::Rails %>
-<table class="table table-striped table-bordered table-hover">
-  <thead class="well">
-    <tr>
-      <th>Name</th>
-      <th>Province</th>
-      <th>District</th>
-      <th>Division</th>
-      <th>Location</th>
-      <th>Sub-Location</th>
-      <th>SRM</th>
-      <th>Agency</th>
-      <th><%=t '.actions', :default => t("helpers.actions") %></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @health_facilities.each do |health_facility| %>
-      <tr>
-        <td><%= link_to health_facility.name, health_facility_path(health_facility) %></td>
-        <td><%= health_facility.province %></td>
-        <td><%= health_facility.district %></td>
-        <td><%= health_facility.division %></td>
-        <td><%= health_facility.location %></td>
-        <td><%= health_facility.sub_location %></td>
-        <td><%= health_facility.srm %></td>
-        <td><%= health_facility.agency %></td>
-        <td>
-          <%= link_to t('.edit', :default => t("helpers.links.edit")),
-                      edit_health_facility_path(health_facility), :class => 'btn btn-mini' %>
-          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-                      health_facility_path(health_facility),
-                      :method => :delete,
-                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-                      :class => 'btn btn-mini btn-danger' %>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-<%= will_paginate @health_facilities, :renderer => BootstrapPagination::Rails %>
+<%= render "list"%>
+
+<br/><h1>Health Facilities From OpenData </h1>
+<% @health_facilities = @od_health_facilities %>
+<%= render "list"%>
 
 <%= link_to t('.new', :default => t("helpers.links.new")),
             new_health_facility_path,
