@@ -4,28 +4,12 @@ class HealthFacilitiesController < ApplicationController
   # GET /health_facilities
   # GET /health_facilities.json
   def index
-    @health_facilities = HealthFacility.all
+    @health_facilities = HealthFacility
+    .paginate(:per_page => 10, :page => params[:page])
 
     respond_to do |format|
-      format.html # index.html.erb
-      format.json do
-          data = []
-          @health_facilities.each do |health_facility|
-            data << [
-              "#{view_context.link_to(health_facility.name, health_facility)}".html_safe,
-                health_facility.province,
-                health_facility.district,
-                health_facility.division,
-                health_facility.location,
-                health_facility.sub_location,
-                health_facility.srm,
-                health_facility.agency
-            ]
-          end
-          data = data.to_json
-          data = "{ \"aaData\": " + data + "}"
-          render :json => data, :layout => false
-        end
+      format.html # show.html.erb
+      format.json { render json: @health_facilities }
     end
   end
 

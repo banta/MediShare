@@ -103,14 +103,9 @@ GEM
     hub (1.10.4)
     i18n (0.6.2)
     journey (1.0.4)
-    jquery-datatables-rails (1.11.2)
-      jquery-rails
     jquery-rails (2.2.1)
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
-    jquery-ui-rails (4.0.1)
-      jquery-rails
-      railties (>= 3.1.0)
     json (1.7.7)
     launchy (2.2.0)
       addressable (~> 2.3)
@@ -231,9 +226,7 @@ DEPENDENCIES
   figaro (>= 0.5.3)
   geocoder (>= 1.1.5)
   hub (>= 1.10.2)
-  jquery-datatables-rails
   jquery-rails
-  jquery-ui-rails
   launchy (>= 2.1.2)
   mysql2
   quiet_assets (>= 1.0.1)

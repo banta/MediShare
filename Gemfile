@@ -41,8 +41,6 @@ group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
   gem 'uglifier', '>= 1.0.3'
-  gem 'jquery-datatables-rails'
-  gem 'jquery-ui-rails'
   gem 'twitter-bootstrap-rails'
   #Better errors gems
   gem "quiet_assets", ">= 1.0.1"
