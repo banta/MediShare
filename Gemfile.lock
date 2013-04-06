@@ -35,10 +35,6 @@ GEM
     activesupport (3.2.8)
       i18n (~> 0.6)
       multi_json (~> 1.0)
-    acts_as_api (0.4.1)
-      activemodel (>= 3.0.0)
-      activesupport (>= 3.0.0)
-      rack (>= 1.1.0)
     addressable (2.3.3)
     arel (3.0.2)
     bcrypt-ruby (3.0.1)
@@ -215,7 +211,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  acts_as_api
   better_errors (>= 0.3.2)
   binding_of_caller (>= 0.6.8)
   bootstrap-datepicker-rails!
