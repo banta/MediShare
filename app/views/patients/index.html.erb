@@ -41,7 +41,7 @@
         <td><%= patient.country %></td>
         <td><%= patient.occupation %></td>
         <td><%= patient.date_of_birth %></td>
-        <td><%= patient.health_facility.name %></td>
+        <td><%= patient.health_facility.name unless patient.health_facility.nil? %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_patient_path(patient), :class => 'btn btn-mini' %>
