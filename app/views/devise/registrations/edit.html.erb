@@ -8,6 +8,9 @@
   <%= f.input :current_password, :hint => "we need your current password to confirm your changes", :required => true %>
   <%= f.button :submit, 'Update', :class => 'btn-primary' %>
 <% end %>
+
+<strong>My API Key <%= current_user.authentication_token %></strong><br/>
+
 <h3>Cancel my account</h3>
 <p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete %>.</p>
 <%= link_to "Back", :back %>
