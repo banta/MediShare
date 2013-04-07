@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.8'
+gem 'rails', '3.2.11'
 gem 'mysql2'
 gem "figaro", ">= 0.5.3"
 gem "country_select", ">= 1.1.3"
