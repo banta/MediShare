@@ -1,4 +1,22 @@
 class Patient < ActiveRecord::Base
+  acts_as_api
+
+  api_accessible :v1_patients_private do |template|
+    template.add :id
+    template.add :names
+    template.add :identification_number
+    template.add :gender
+    template.add :address
+    template.add :town
+    template.add :location
+    template.add :phone
+    template.add :country
+    template.add :occupation
+    template.add :civil_status
+    template.add :date_of_birth
+    template.add :health_facility_id
+  end
+
   belongs_to :health_facility
   attr_accessible :address, :civil_status, :country, :date_of_birth, :gender,
   :identification_number, :location, :names, :occupation, :phone, :town, :health_facility_id

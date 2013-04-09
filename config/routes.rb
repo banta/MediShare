@@ -13,4 +13,12 @@ Medishare::Application.routes.draw do
   root :to => "home#index"
   devise_for :users
   resources :users
+
+  namespace :api do
+    namespace :private do
+      namespace :v1 do
+          resources :patients
+      end
+    end
+  end
 end
