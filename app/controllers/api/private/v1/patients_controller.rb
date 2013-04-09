@@ -24,7 +24,7 @@ class Api::Private::V1::PatientsController < Api::Private::V1::BaseController
     if @patient.save
       respond_with(@patient, :api_template => :v1_patients_private, :status => :ok)
     else
-      respond_with(@patient.errors, :status => :unprocessable_entity)
+      respond_with(@patient, :status => :unprocessable_entity)
     end
   end
 
