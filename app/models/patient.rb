@@ -30,6 +30,10 @@ class Patient < ActiveRecord::Base
     has id, created_at, updated_at
   end
 
+  validates :address, :civil_status, :country, :date_of_birth, :gender,
+  :identification_number, :location, :names, :occupation, :phone, :town,
+  :health_facility_id, :presence => true
+
   def self.import(file, user, s)
     CSV.foreach(file.path, headers: true) do |row|
       patient = find_by_id(row["id"]) || new
