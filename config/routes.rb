@@ -1,4 +1,7 @@
 Medishare::Application.routes.draw do
+  resources :diseases
+
+
   resources :patients do
   	collection { post :import }
   end
