@@ -1,25 +1,28 @@
 <h1>Listing diseases</h1>
 
-<table>
+<table class="table table-hover">
   <tr>
     <th>Name</th>
-    <th>Description</th>
-    <th></th>
-    <th></th>
-    <th></th>
+    <th>Actions</th>
   </tr>
 
 <% @diseases.each do |disease| %>
   <tr>
-    <td><%= disease.name %></td>
-    <td><%= disease.description %></td>
-    <td><%= link_to 'Show', disease %></td>
-    <td><%= link_to 'Edit', edit_disease_path(disease) %></td>
-    <td><%= link_to 'Destroy', disease, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= disease.name unless disease.name.nil? %></td>
+    <td>
+          <%= link_to t('.show', :default => t("helpers.links.show")),
+                      disease, :class => 'btn btn-mini' %>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_disease_path(disease), :class => 'btn btn-mini' %>
+          <%= link_to 'Destroy', disease,
+                      :method => :delete,
+                      :class => "btn btn-mini btn-danger", 
+                      :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) %>
+        </td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Disease', new_disease_path %>
+<%= link_to 'New Disease', new_disease_path, :class => "btn btn-primary" %>
