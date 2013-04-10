@@ -7,9 +7,12 @@
 
 <p>
   <b>Description:</b>
-  <%= @disease.description %>
+  <div class="well">
+  	<%= @disease.description.html_safe %>
+  </div>
 </p>
 
-
-<%= link_to 'Edit', edit_disease_path(@disease) %> |
-<%= link_to 'Back', diseases_path %>
+<div class="well">
+	<%= link_to 'Edit', edit_disease_path(@disease) %> |
+	<%= link_to 'Back', diseases_path %>
+</div>
