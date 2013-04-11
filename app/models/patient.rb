@@ -18,6 +18,8 @@ class Patient < ActiveRecord::Base
   end
 
   belongs_to :health_facility
+  has_many :diseases
+  
   attr_accessible :address, :civil_status, :country, :date_of_birth, :gender,
   :identification_number, :location, :names, :occupation, :phone, :town, :health_facility_id
 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130409181610) do
+ActiveRecord::Schema.define(:version => 20130411030327) do
 
   create_table "bednets_and_illinesses", :force => true do |t|
     t.string   "county"
@@ -28,7 +28,10 @@ ActiveRecord::Schema.define(:version => 20130409181610) do
     t.text     "description"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+    t.integer  "patient_id"
   end
+
+  add_index "diseases", ["patient_id"], :name => "index_diseases_on_patient_id"
 
   create_table "health_facilities", :force => true do |t|
     t.string   "name"
