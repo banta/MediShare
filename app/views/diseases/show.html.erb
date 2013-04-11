@@ -1,6 +1,6 @@
 <p>
   <b>Name:</b>
-  <%= @disease.name %>
+  <%= @disease.name unless @disease.name.nil? %>
 </p>
 
 <p>
