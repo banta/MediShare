@@ -1,15 +1,16 @@
-<p id="notice"><%= notice %></p>
-
 <p>
   <b>Name:</b>
-  <%= @medicine.name %>
+  <%= @medicine.name unless @medicine.name.nil? %>
 </p>
 
 <p>
   <b>Description:</b>
-  <%= @medicine.description %>
+  <div class="well">
+  	<%= @medicine.description .html_safe %>
+  </div>
 </p>
 
-
-<%= link_to 'Edit', edit_medicine_path(@medicine) %> |
-<%= link_to 'Back', medicines_path %>
+<div class="well">
+	<%= link_to 'Edit', edit_medicine_path(@medicine), :class => "btn btn-primary" %>
+	<%= link_to 'Back', medicines_path, :class => "btn" %>
+</div>

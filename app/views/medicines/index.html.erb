@@ -1,25 +1,26 @@
 <h1>Listing medicines</h1>
 
-<table>
+<table class="table table-hover">
   <tr>
     <th>Name</th>
-    <th>Description</th>
-    <th></th>
-    <th></th>
-    <th></th>
+    <th>Actions</th>
   </tr>
 
 <% @medicines.each do |medicine| %>
   <tr>
-    <td><%= medicine.name %></td>
-    <td><%= medicine.description %></td>
-    <td><%= link_to 'Show', medicine %></td>
-    <td><%= link_to 'Edit', edit_medicine_path(medicine) %></td>
-    <td><%= link_to 'Destroy', medicine, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= medicine.name unless medicine.name.nil? %></td>
+    <td>
+      <%= link_to t('.show', :default => t("helpers.links.show")), medicine, :class => 'btn btn-mini' %>
+      <%= link_to t('.edit', :default => t("helpers.links.edit")), edit_medicine_path(medicine), :class => 'btn btn-mini' %>
+      <%= link_to 'Destroy', medicine,
+                  :method => :delete,
+                  :class => "btn btn-mini btn-danger", 
+                  :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) %>
+    </td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Medicine', new_medicine_path %>
+<%= link_to 'Add Medicine', new_medicine_path, :class => "btn btn-primary" %>
