@@ -16,9 +16,11 @@ class Patient < ActiveRecord::Base
     template.add :date_of_birth
     template.add :health_facility_id
   end
-
+  
+  # Associations
   belongs_to :health_facility
-  has_many :diseases
+  has_many :patients_diseases
+  has_many :diseases, :through => :patients_diseases
   
   attr_accessible :address, :civil_status, :country, :date_of_birth, :gender,
   :identification_number, :location, :names, :occupation, :phone, :town, :health_facility_id

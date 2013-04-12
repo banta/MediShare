@@ -1,5 +1,10 @@
 class Disease < ActiveRecord::Base
-  belongs_to :patient
+  
+  # Associations
+  has_many :patients_diseases
+  has_many :patients, :through => :patients_diseases
+
+  # Accessible attributes
   attr_accessible :description, :name
 
   validates :description, :name, :presence => true
