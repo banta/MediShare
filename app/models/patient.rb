@@ -58,4 +58,13 @@ class Patient < ActiveRecord::Base
       patient.save!
     end
   end
+
+  def diseases_tokens=(ids)
+    dis_tokens = ids.split(',').uniq
+    self.patients_diseases.destroy_all
+
+    dis_tokens.each do |id|
+      self.patients_diseases.create!(:disease_id => id)
+    end
+  end
 end
