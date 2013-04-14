@@ -19,11 +19,12 @@ class Patient < ActiveRecord::Base
   
   # Associations
   belongs_to :health_facility
-  has_many :patients_diseases
-  has_many :diseases, :through => :patients_diseases
+  has_many :patient_diseases
+  has_many :diseases, :through => :patient_diseases
   
   attr_accessible :address, :civil_status, :country, :date_of_birth, :gender,
   :identification_number, :location, :names, :occupation, :phone, :town, :health_facility_id
+  attr_reader :diseases_tokens
 
   define_index do
     # fields
