@@ -8,8 +8,8 @@ class Disease < ActiveRecord::Base
   end
 
   # Associations
-  has_many :patient_diseases
-  has_many :patients, :through => :patient_diseases
+  has_many :prescription_diseases
+  has_many :prescriptions, :through => :prescription_diseases
 
   # Accessible attributes
   attr_accessible :description, :name
