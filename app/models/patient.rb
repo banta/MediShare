@@ -19,8 +19,7 @@ class Patient < ActiveRecord::Base
   
   # Associations
   belongs_to :health_facility
-  has_many :patient_diseases
-  has_many :diseases, :through => :patient_diseases
+  has_many :prescriptions
   
   attr_accessible :address, :civil_status, :country, :date_of_birth, :gender,
   :identification_number, :location, :names, :occupation, :phone, :town, :health_facility_id,
