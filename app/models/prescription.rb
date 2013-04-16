@@ -1,4 +1,4 @@
-class Prescriptions < ActiveRecord::Base
+class Prescription < ActiveRecord::Base
   # attr_accessible :title, :body
   #Associations
   belongs_to :patients
