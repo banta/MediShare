@@ -24,6 +24,7 @@ Medishare::Application.routes.draw do
     namespace :private do
       namespace :v1 do
           resources :patients
+          resources :diseases
       end
     end
   end
