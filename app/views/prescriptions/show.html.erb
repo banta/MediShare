@@ -1,6 +1,11 @@
 <p>
-  <b>Id:</b>
-  <%= @prescription.id %>
+  <b>Name:</b>
+  <%= @prescription.name unless @prescription.name.nil? %>
+</p>
+
+<p>
+  <b>Notes:</b>
+  <%= @prescription.notes unless @prescription.notes.nil? %>
 </p>
 
 <div class="well">

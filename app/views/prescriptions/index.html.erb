@@ -8,7 +8,7 @@
 
 <% @prescriptions.each do |prescription| %>
   <tr>
-    <td><%= prescription.id %></td>
+    <td><%= prescription.name unless prescription.name.nil? %></td>
     <td>
           <%= link_to t('.show', :default => t("helpers.links.show")),
                       prescription, :class => 'btn btn-mini' %>
