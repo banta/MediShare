@@ -1,0 +1,6 @@
+<ul id="prescriptions">
+  <% prescriptions.each do |prescription| %>
+    <% next if prescription.new_record? %>
+    <%= render "prescriptions/show", :prescription => prescription %>
+  <% end %>
+</ul>

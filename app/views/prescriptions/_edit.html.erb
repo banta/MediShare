@@ -1,0 +1,9 @@
+<li class='fields'>
+  <%= form_for prescription, :remote => true, :html => {:class => 'ajax_update'} do |f| %>
+    <%= f.label :name, 'name' %>
+    <%= f.text_field :name %>
+    <br/>
+    <%= f.submit "submit" %>
+    <%= link_to "Back", prescription_path(prescription), :remote => true, :class => 'ajax_show' %>
+  <% end %>
+</li>

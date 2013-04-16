@@ -34,7 +34,8 @@ class PatientsController < ApplicationController
   # GET /patients/1.json
   def show
     @patient = Patient.find(params[:id])
-    @prescription = Prescription.new
+    @prescription = @patient.prescriptions.new
+    @prescriptions = @patient.prescriptions
 
     respond_to do |format|
       format.html # show.html.erb
