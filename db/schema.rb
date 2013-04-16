@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130416120616) do
+ActiveRecord::Schema.define(:version => 20130416215452) do
 
   create_table "bednets_and_illinesses", :force => true do |t|
     t.string   "county"
@@ -94,6 +94,8 @@ ActiveRecord::Schema.define(:version => 20130416120616) do
     t.integer  "patient_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.string   "name"
+    t.text     "notes"
   end
 
   add_index "prescriptions", ["patient_id"], :name => "index_prescriptions_on_patient_id"
