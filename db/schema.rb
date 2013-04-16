@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130414095802) do
+ActiveRecord::Schema.define(:version => 20130416120616) do
 
   create_table "bednets_and_illinesses", :force => true do |t|
     t.string   "county"
@@ -61,16 +61,6 @@ ActiveRecord::Schema.define(:version => 20130414095802) do
     t.datetime "updated_at",  :null => false
   end
 
-  create_table "patient_diseases", :force => true do |t|
-    t.integer  "patient_id"
-    t.integer  "disease_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
-  add_index "patient_diseases", ["disease_id"], :name => "index_patient_diseases_on_disease_id"
-  add_index "patient_diseases", ["patient_id"], :name => "index_patient_diseases_on_patient_id"
-
   create_table "patients", :force => true do |t|
     t.string   "names"
     t.string   "identification_number"
@@ -89,6 +79,24 @@ ActiveRecord::Schema.define(:version => 20130414095802) do
   end
 
   add_index "patients", ["health_facility_id"], :name => "index_patients_on_health_facility_id"
+
+  create_table "prescription_diseases", :force => true do |t|
+    t.integer  "prescription_id"
+    t.integer  "disease_id"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
+
+  add_index "prescription_diseases", ["disease_id"], :name => "index_prescription_diseases_on_disease_id"
+  add_index "prescription_diseases", ["prescription_id"], :name => "index_prescription_diseases_on_prescription_id"
+
+  create_table "prescriptions", :force => true do |t|
+    t.integer  "patient_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "prescriptions", ["patient_id"], :name => "index_prescriptions_on_patient_id"
 
   create_table "roles", :force => true do |t|
     t.string   "name"
