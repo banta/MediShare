@@ -1,0 +1,9 @@
+<p>
+  <b>Id:</b>
+  <%= @prescription.id %>
+</p>
+
+<div class="well">
+	<%= link_to 'Edit', edit_prescription_path(@prescription), :class => "btn btn-primary" %>
+	<%= link_to 'Back', prescriptions_path, :class => "btn" %>
+</div>
