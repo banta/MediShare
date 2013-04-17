@@ -40,9 +40,6 @@
 
     <div class="span4">
       <h4>Prescriptions</h4>
-      <%= link_to "Refresh comments", patient_prescriptions_path(@patient), :remote => true, :class => 'ajax_index', 'data-replace-target'=> 'ul#prescriptions' %>
-      <%= render "prescriptions/new", :prescription => @prescription, :patient => @patient %>
-      <%= render "prescriptions/index", :prescriptions => @prescriptions %>
     </div><!-- End span4 -->
   </div><!-- End row -->         
 

@@ -3,15 +3,15 @@ Medishare::Application.routes.draw do
 
 
   resources :diseases
+  resources :prescriptions
 
 
   resources :patients do
   	collection { post :import }
-    resources :prescriptions, :only => [:index]
   end
 
-  resources :prescriptions
   resources :bednets_and_illinesses
+
   resources :health_facilities
 
   authenticated :user do

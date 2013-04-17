@@ -1,66 +1,85 @@
 class PrescriptionsController < ApplicationController
-  #before_filter :authenticate_user!
-  #load_and_authorize_resource
-  
-  respond_to :html, :json
-
-  before_filter :set_variables, :only => [:edit, :update, :destroy]
-
+  before_filter :authenticate_user!
+  load_and_authorize_resource
+  # GET /prescriptions
+  # GET /prescriptions.json
   def index
-    @prescriptions = Post.find(params[:post_id]).prescriptions
-    if request.xhr?
-      render :partial => 'index', :locals => { :prescriptions => @prescriptions }
-    else
-      respond_with @prescriptions
+    @prescriptions = Prescription.all
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @prescriptions }
     end
   end
 
-  def new
-    @prescription = Prescription.new
-    respond_with @prescription
-  end
-
-  def create
-    @prescription = Prescription.new(params[:prescription])
-    if @prescription.save && request.xhr?
-      render :partial => 'show', :locals => { :prescription => @prescription }
-    else
-      respond_with @prescription
-    end
-  end
-
+  # GET /prescriptions/1
+  # GET /prescriptions/1.json
   def show
     @prescription = Prescription.find(params[:id])
-    if request.xhr?
-      render :partial => 'show', :locals => { :prescription => @prescription }
-    else
-      respond_with @prescription
+
+    respond_to do |format|
+      format.html # show.html.erb
+      format.json { render json: @prescription }
     end
   end
 
+  # GET /prescriptions/new
+  # GET /prescriptions/new.json
+  def new
+    @prescription = Prescription.new
+
+    respond_to do |format|
+      format.html # new.html.erb
+      format.json { render json: @prescription }
+    end
+  end
+
+  # GET /prescriptions/1/edit
   def edit
-    if request.xhr?
-      render :partial => 'edit', :locals => { :prescription => @prescription }
-    else
-      respond_with @prescription
-    end
-  end
-
-  def update
-    if @prescription.update_attributes(params[:prescription]) && request.xhr?
-      render :partial => 'show', :locals => { :prescription => @prescription }
-    else
-      respond_with @prescription
-    end
-  end
-
-  def destroy
-    @prescription.destroy
-    respond_with @prescription
-  end
-
-  private
-  def set_variables
     @prescription = Prescription.find(params[:id])
+  end
+
+  # POST /prescriptions
+  # POST /prescriptions.json
+  def create
+    @prescription = Prescription.new(params[:prescription])
+
+    respond_to do |format|
+      if @prescription.save
+        format.html { redirect_to @prescription, notice: 'Prescription was successfully created.' }
+        format.json { render json: @prescription, status: :created, location: @prescription }
+      else
+        format.html { render action: "new" }
+        format.json { render json: @prescription.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  # PUT /prescriptions/1
+  # PUT /prescriptions/1.json
+  def update
+    @prescription = Prescription.find(params[:id])
+
+    respond_to do |format|
+      if @prescription.update_attributes(params[:prescription])
+        format.html { redirect_to @prescription, notice: 'Prescription was successfully updated.' }
+        format.json { head :no_content }
+      else
+        format.html { render action: "edit" }
+        format.json { render json: @prescription.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  # DELETE /prescriptions/1
+  # DELETE /prescriptions/1.json
+  def destroy
+    @prescription = Prescription.find(params[:id])
+    @prescription.destroy
+
+    respond_to do |format|
+      format.html { redirect_to diseases_url }
+      format.json { head :no_content }
+    end
   end
 end

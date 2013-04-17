@@ -1,4 +1,0 @@
-<li class='fields'>
-  <%= link_to prescription.name, edit_prescription_path(prescription), :remote => true, :class => 'ajax_edit' %>
-  <%= link_to "delete", prescription_path(prescription, :format => :json), :method => :delete, :remote => true, :confirm => 'Are you sure?', :class => 'ajax_destroy' %>
-</li>

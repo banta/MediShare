@@ -1,7 +1,0 @@
-<%= form_for prescription, :remote => true, :html => {:class => 'ajax_create', 'data-replace-target' => 'ul#prescriptions', 'data-replace-location' => 'body'} do |f| %>
-  <%= f.label :name, 'name' %>
-  <%= f.text_field :name %>
-  <%= f.hidden_field :patient_id, :value => patient.id %>
-  <%= f.submit "submit" %>
-<% end %>
-
