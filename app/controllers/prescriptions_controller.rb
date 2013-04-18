@@ -9,7 +9,7 @@ class PrescriptionsController < ApplicationController
 
     respond_to do |format|
       if @prescription.save
-        format.html { redirect_to redirect_to patient_path(@prescription.patient.id), notice: 'Prescription was successfully created.' }
+        format.html { redirect_to patient_path(@prescription.patient.id), notice: 'Prescription was successfully created.' }
         format.json { render json: @prescription, status: :created, location: @prescription }
       else
         format.html { redirect_to patient_path(@prescription.patient.id), alert: 'Name of the prescription is required.' }
