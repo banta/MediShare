@@ -8,6 +8,7 @@
     <%= simple_form_for prescription, :html => { :class => 'form-horizontal' } do |f| %>
       <%= f.error_notification %>
       <%= f.input :name %>
+      <div class="control-group string optional prescription_diseases_tokens"><label for="prescription_diseases_tokens" class="string optional control-label">Diseases</label><div class="controls"><input type="text" size="50" name="prescription[diseases_tokens]" id="prescription_diseases_tokens<%= "#{prescription.id}" %>" data-pre="<%= prescription.diseases.map(&:attributes).to_json %>" class="string optional"></div></div>
       <%= f.input :notes, :input_html => { :rows => 2 } %>
       <%= f.hidden_field :patient_id, :value => @patient.id %>
   </div>
@@ -17,3 +18,12 @@
     <% end %>
   </div>
 </div>
+
+<script type="text/javascript">
+  $("#prescription_diseases_tokens<%= "#{prescription.id}" %>").tokenInput("/api/private/v1/diseases?format=json", {
+      zindex: 11001,
+      prePopulate: $("#prescription_diseases_tokens<%= "#{prescription.id}" %>").data("pre"),
+      theme: "facebook",
+    preventDuplicates: true
+    });
+</script>
