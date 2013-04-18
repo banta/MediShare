@@ -8,10 +8,8 @@
   <tr>
     <td><%= prescription.name unless prescription.name.nil? %></td>
     <td>
-          <%= link_to t('.show', :default => t("helpers.links.show")),
-                      prescription, :class => 'btn btn-mini' %>
-          <%= link_to t('.edit', :default => t("helpers.links.edit")),
-                      edit_prescription_path(prescription), :class => 'btn btn-mini' %>
+          <%= link_to 'Show', prescription, :class => 'btn btn-mini' %>
+          <%= link_to 'Edit', edit_prescription_path(prescription), :class => 'btn btn-mini' %>
           <%= link_to 'Destroy', prescription,
                       :method => :delete,
                       :class => "btn btn-mini btn-danger", 
