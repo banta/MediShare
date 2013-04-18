@@ -1,6 +1,6 @@
 class Prescription < ActiveRecord::Base
   # Accessible attributes
-  attr_accessible :name, :notes
+  attr_accessible :name, :notes, :patient_id
 
   #Associations
   belongs_to :patients
