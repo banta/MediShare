@@ -13,10 +13,10 @@ class Prescription < ActiveRecord::Base
 
   def diseases_tokens=(ids)
     dis_tokens = ids.split(',').uniq
-    self.patient_diseases.destroy_all
+    self.prescription_diseases.destroy_all
 
     dis_tokens.each do |id|
-      self.patient_diseases.create!(:disease_id => id)
+      self.prescription_diseases.create!(:disease_id => id)
     end
   end
 end
