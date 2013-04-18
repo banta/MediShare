@@ -1,0 +1,31 @@
+<h1>Listing prescription_lines</h1>
+
+<table>
+  <tr>
+    <th>Quantity</th>
+    <th>Frequency</th>
+    <th>Time</th>
+    <th>Period no</th>
+    <th>Period</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @prescription_lines.each do |prescription_line| %>
+  <tr>
+    <td><%= prescription_line.quantity %></td>
+    <td><%= prescription_line.frequency %></td>
+    <td><%= prescription_line.time %></td>
+    <td><%= prescription_line.period_no %></td>
+    <td><%= prescription_line.period %></td>
+    <td><%= link_to 'Show', prescription_line %></td>
+    <td><%= link_to 'Edit', edit_prescription_line_path(prescription_line) %></td>
+    <td><%= link_to 'Destroy', prescription_line, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Prescription line', new_prescription_line_path %>

@@ -1,4 +1,7 @@
 Medishare::Application.routes.draw do
+  resources :prescription_lines
+
+
   resources :medicines
 
 

@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Quantity:</b>
+  <%= @prescription_line.quantity %>
+</p>
+
+<p>
+  <b>Frequency:</b>
+  <%= @prescription_line.frequency %>
+</p>
+
+<p>
+  <b>Time:</b>
+  <%= @prescription_line.time %>
+</p>
+
+<p>
+  <b>Period no:</b>
+  <%= @prescription_line.period_no %>
+</p>
+
+<p>
+  <b>Period:</b>
+  <%= @prescription_line.period %>
+</p>
+
+
+<%= link_to 'Edit', edit_prescription_line_path(@prescription_line) %> |
+<%= link_to 'Back', prescription_lines_path %>
