@@ -1,6 +1,17 @@
 <h1>Editing prescriptions</h1>
 
-<%= render 'form' %>
+<%= simple_form_for @prescription, :html => { :class => 'form-horizontal' } do |f| %>
+	<%= f.error_notification %>
+
+	<div class="form-inputs">
+		<%= f.input :name %>
+		<%= f.input :notes, :input_html => { :rows => 2 } %>
+	</div>
+
+	<div class="form-actions">
+		<%= f.button :submit, :class => "btn-primary" %>
+	</div>
+<% end %>
 
 <%= link_to 'Show', @prescription,  :class => "btn btn-primary" %>
 <%= link_to 'Back', :back, :class => "btn" %>
