@@ -3,7 +3,7 @@ Medishare::Application.routes.draw do
 
 
   resources :diseases
-  resources :prescriptions
+  resources :prescriptions, :only => [:create, :update, :destroy]
 
 
   resources :patients do

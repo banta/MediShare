@@ -1,43 +1,6 @@
 class PrescriptionsController < ApplicationController
   before_filter :authenticate_user!
   load_and_authorize_resource
-  # GET /prescriptions
-  # GET /prescriptions.json
-  def index
-    @prescriptions = Prescription.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @prescriptions }
-    end
-  end
-
-  # GET /prescriptions/1
-  # GET /prescriptions/1.json
-  def show
-    @prescription = Prescription.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @prescription }
-    end
-  end
-
-  # GET /prescriptions/new
-  # GET /prescriptions/new.json
-  def new
-    @prescription = Prescription.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @prescription }
-    end
-  end
-
-  # GET /prescriptions/1/edit
-  def edit
-    @prescription = Prescription.find(params[:id])
-  end
 
   # POST /prescriptions
   # POST /prescriptions.json
@@ -46,10 +9,10 @@ class PrescriptionsController < ApplicationController
 
     respond_to do |format|
       if @prescription.save
-        format.html { redirect_to @prescription, notice: 'Prescription was successfully created.' }
+        format.html { redirect_to redirect_to patient_path(@prescription.patient.id), notice: 'Prescription was successfully created.' }
         format.json { render json: @prescription, status: :created, location: @prescription }
       else
-        format.html { render action: "new" }
+        format.html { redirect_to patient_path(@prescription.patient.id), alert: 'Name of the prescription is required.' }
         format.json { render json: @prescription.errors, status: :unprocessable_entity }
       end
     end
@@ -65,7 +28,7 @@ class PrescriptionsController < ApplicationController
         format.html { redirect_to patient_path(@prescription.patient.id), notice: 'Prescription was successfully updated.' }
         format.json { head :no_content }
       else
-        format.html { render action: "edit" }
+        format.html { redirect_to patient_path(@prescription.patient.id), alert: 'Name of the prescription is required.' }
         format.json { render json: @prescription.errors, status: :unprocessable_entity }
       end
     end
@@ -78,7 +41,7 @@ class PrescriptionsController < ApplicationController
     @prescription.destroy
 
     respond_to do |format|
-      format.html { redirect_to diseases_url }
+      format.html { redirect_to patient_path(@prescription.patient.id), notice: 'Prescription was successfully deleted.' }
       format.json { head :no_content }
     end
   end
