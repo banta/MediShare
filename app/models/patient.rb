@@ -22,9 +22,7 @@ class Patient < ActiveRecord::Base
   has_many :prescriptions
   
   attr_accessible :address, :civil_status, :country, :date_of_birth, :gender,
-  :identification_number, :location, :names, :occupation, :phone, :town, :health_facility_id,
-  :diseases_tokens
-  attr_reader :diseases_tokens
+  :identification_number, :location, :names, :occupation, :phone, :town, :health_facility_id
 
   define_index do
     # fields
@@ -57,15 +55,6 @@ class Patient < ActiveRecord::Base
         patient.health_facility_id = user.health_facility.id
       end
       patient.save!
-    end
-  end
-
-  def diseases_tokens=(ids)
-    dis_tokens = ids.split(',').uniq
-    self.patient_diseases.destroy_all
-
-    dis_tokens.each do |id|
-      self.patient_diseases.create!(:disease_id => id)
     end
   end
 end
