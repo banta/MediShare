@@ -6,4 +6,7 @@ class Prescription < ActiveRecord::Base
   belongs_to :patient
   has_many :prescription_diseases
   has_many :diseases, :through => :prescription_diseases
+
+  # Validations
+  validates :name, :patient_id, :presence => true
 end
