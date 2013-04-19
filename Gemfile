@@ -23,6 +23,7 @@ gem 'jquery-tokeninput-rails'
 group :development do
   gem "hub", ">= 1.10.2", :require => nil
   gem "quiet_assets", ">= 1.0.1"
+  gem "rails-erd"
 end
 
 group :development, :test do
