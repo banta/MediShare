@@ -20,6 +20,7 @@ gem 'thinking-sphinx'
 gem 'acts_as_api'
 gem "ckeditor"
 gem 'jquery-tokeninput-rails'
+gem 'gchartrb'
 
 group :development do
   gem "hub", ">= 1.10.2", :require => nil
