@@ -7,6 +7,7 @@ gem "country_select", ">= 1.1.3"
 gem 'bootstrap-datepicker-rails', :require => 'bootstrap-datepicker-rails',
                                   :git => 'git://github.com/Nerian/bootstrap-datepicker-rails.git'
 gem 'geocoder', '>= 1.1.5'
+gem 'gmaps4rails'
 gem 'will_paginate'
 gem 'jquery-rails'
 gem "thin", ">= 1.5.0"
