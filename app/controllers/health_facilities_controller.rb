@@ -89,5 +89,6 @@ class HealthFacilitiesController < ApplicationController
   end
 
   def analytics
+    @json = HealthFacility.all.to_a.to_gmaps4rails
   end
 end
