@@ -3,7 +3,15 @@
   <h1><%=t '.title', :default => model_class.model_name.human %></h1>
 </div>
 
-<%= render "navbar" %>
+<div class="navbar">
+  <div class="navbar-inner">
+    <ul class="nav">
+      <li class="active"><%= link_to 'My Health Facility', health_facility_path(HealthFacility.find_by_user_id(current_user)) %></li>
+      <li><%= link_to 'My Patients', patients_path %></li>
+      <li><%= link_to 'Analytics' %></li>
+    </ul>
+  </div>
+</div>
 
 <table class="table table-striped table-condensed">
   <thead>
