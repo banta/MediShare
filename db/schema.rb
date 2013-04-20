@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130416215452) do
+ActiveRecord::Schema.define(:version => 20130420110840) do
 
   create_table "bednets_and_illinesses", :force => true do |t|
     t.string   "county"
@@ -50,6 +50,7 @@ ActiveRecord::Schema.define(:version => 20130416215452) do
     t.datetime "updated_at",    :null => false
     t.integer  "user_id"
     t.string   "source"
+    t.string   "address"
   end
 
   add_index "health_facilities", ["user_id"], :name => "index_health_facilities_on_user_id"
@@ -89,6 +90,16 @@ ActiveRecord::Schema.define(:version => 20130416215452) do
 
   add_index "prescription_diseases", ["disease_id"], :name => "index_prescription_diseases_on_disease_id"
   add_index "prescription_diseases", ["prescription_id"], :name => "index_prescription_diseases_on_prescription_id"
+
+  create_table "prescription_lines", :force => true do |t|
+    t.string   "quantity"
+    t.integer  "frequency"
+    t.string   "time"
+    t.integer  "period_no"
+    t.string   "period"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "prescriptions", :force => true do |t|
     t.integer  "patient_id"

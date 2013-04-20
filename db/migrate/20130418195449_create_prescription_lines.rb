@@ -4,7 +4,7 @@ class CreatePrescriptionLines < ActiveRecord::Migration
       t.string :quantity
       t.integer :frequency
       t.string :time
-      t.intger :period_no
+      t.integer :period_no
       t.string :period
 
       t.timestamps
