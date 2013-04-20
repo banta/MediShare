@@ -8,10 +8,14 @@
       <ul class="nav">
         <li><%= link_to 'My Health Facility', health_facility_path(HealthFacility.find_by_user_id(current_user)) %></li>
         <li><%= link_to 'My Patients', patients_path %></li>
-        <li class="active"><%= link_to 'Analytics' %></li>
+        <li class="active"><%= link_to 'Analytics', analytics_health_facilities_path %></li>
       </ul>
     </div>
   </div>
+<% end %>
+
+<%= form_tag analytics_health_facilities_path, :class=>"navbar-search pull-left", :method => :get do %>
+  <%= text_field_tag :search, params[:search], :class=>"search-query", :placeholder=>"Search the location" %>
 <% end %>
 
 <%= gmaps4rails(@json) %>
