@@ -1,1 +1,13 @@
 <h1>Analytics</h1>
+
+<% if current_user.has_role? :user %>
+  <div class="navbar">
+    <div class="navbar-inner">
+      <ul class="nav">
+        <li><%= link_to 'My Health Facility', health_facility_path(HealthFacility.find_by_user_id(current_user)) %></li>
+        <li><%= link_to 'My Patients', patients_path %></li>
+        <li class="active"><%= link_to 'Analytics' %></li>
+      </ul>
+    </div>
+  </div>
+<% end %>
