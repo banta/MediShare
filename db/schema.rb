@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130420110840) do
+ActiveRecord::Schema.define(:version => 20130420112254) do
 
   create_table "bednets_and_illinesses", :force => true do |t|
     t.string   "county"
@@ -44,8 +44,8 @@ ActiveRecord::Schema.define(:version => 20130420110840) do
     t.string   "srm"
     t.string   "facility_type"
     t.string   "agency"
-    t.string   "latitude"
-    t.string   "longitude"
+    t.float    "latitude"
+    t.float    "longitude"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
     t.integer  "user_id"
