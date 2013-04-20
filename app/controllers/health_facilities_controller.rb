@@ -90,7 +90,10 @@ class HealthFacilitiesController < ApplicationController
 
   def analytics
         if params[:search].present?
-          @json = HealthFacility.near(params[:search], 50, :order => :distance).to_gmaps4rails
+          ids = HealthFacility.search(params[:search]).collect{|c| c.id} # health_facility ids
+          @json = HealthFacility.where(:id => ids).to_gmaps4rails
+
+          #@json = HealthFacility.near(params[:search], 2, :order => :distance).to_gmaps4rails
         else
           @json = HealthFacility.all.to_gmaps4rails
         end

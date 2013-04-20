@@ -6,6 +6,15 @@ class HealthFacility < ActiveRecord::Base
   attr_accessible :agency, :district, :division, :facility_type, :hmis, :latitude,
   :location, :longitude, :name, :province, :srm, :sub_location, :user_id, :address
 
+  # Thinking sphinx
+  define_index do
+    # fields
+    indexes address, district, division, facility_type, hmis, name, province, sub_location
+    
+    # attributes
+    has id, created_at, updated_at
+  end
+
   # Geocoder settings
   geocoded_by :address
   after_validation :geocode, :if => :address_changed?
