@@ -15,7 +15,9 @@ Medishare::Application.routes.draw do
 
   resources :bednets_and_illinesses
 
-  resources :health_facilities
+  resources :health_facilities do
+    collection { get :analytics }
+  end
 
   authenticated :user do
     root :to => 'home#index'

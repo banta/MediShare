@@ -87,4 +87,7 @@ class HealthFacilitiesController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def analytics
+  end
 end
