@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130420112254) do
+ActiveRecord::Schema.define(:version => 20130420114203) do
 
   create_table "bednets_and_illinesses", :force => true do |t|
     t.string   "county"
@@ -51,6 +51,7 @@ ActiveRecord::Schema.define(:version => 20130420112254) do
     t.integer  "user_id"
     t.string   "source"
     t.string   "address"
+    t.boolean  "gmaps"
   end
 
   add_index "health_facilities", ["user_id"], :name => "index_health_facilities_on_user_id"
