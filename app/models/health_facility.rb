@@ -24,8 +24,8 @@ class HealthFacility < ActiveRecord::Base
   end
 
 	def gmaps4rails_infowindow
-  	"<h4>#{name}</h4>" << "<h4>#{location}</h4>"<<"<p>
-		Reported @ #{created_at}</br>
-		<a href='/diseases/#{id}'>More info</a></p>"
+  	"<b>#{name}</b>" << " - <b>#{location}</b>"<<"<p>
+	Created @ #{created_at}</br>
+	<a href='/health_facilities/#{id}'>More info</a></p>"
   end
 end
