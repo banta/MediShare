@@ -1,4 +1,7 @@
 Medishare::Application.routes.draw do
+  resources :data_minings
+
+
   resources :prescription_lines
 
 

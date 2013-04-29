@@ -1,0 +1,21 @@
+<h1>Listing data_minings</h1>
+
+<table>
+  <tr>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @data_minings.each do |data_mining| %>
+  <tr>
+    <td><%= link_to 'Show', data_mining %></td>
+    <td><%= link_to 'Edit', edit_data_mining_path(data_mining) %></td>
+    <td><%= link_to 'Destroy', data_mining, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Data mining', new_data_mining_path %>
