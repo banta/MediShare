@@ -17,6 +17,7 @@ Medishare::Application.routes.draw do
 
   resources :health_facilities do
     collection { get :analytics }
+    collection { get :data_mining }
   end
 
   authenticated :user do

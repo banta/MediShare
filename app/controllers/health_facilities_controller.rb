@@ -98,4 +98,7 @@ class HealthFacilitiesController < ApplicationController
           @json = HealthFacility.all.to_gmaps4rails
         end
   end
+
+  def data_mining
+  end
 end
