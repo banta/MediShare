@@ -101,4 +101,7 @@ class HealthFacilitiesController < ApplicationController
 
   def data_mining
   end
+
+  def xdata_mining
+  end
 end

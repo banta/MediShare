@@ -6,7 +6,7 @@ class Ability
     if user.has_role? :admin
       can :manage, :all
     elsif user.has_role? :user
-        can [:show, :update, :destroy, :analytics, :data_mining], HealthFacility, :user_id => user.id
+        can [:show, :update, :destroy, :analytics, :data_mining, :xdata_mining], HealthFacility, :user_id => user.id
         can [:show, :update, :create, :index], Disease
         can [:show, :update, :create, :index], Medicine
         can :manage, Prescription
