@@ -4,22 +4,22 @@
   aria-hidden="true">
   <div class="modal-header">
     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-    <h3 id="myModalLabel">Prescription</h3>
+    <h3 id="myModalLabel">Data mining config form</h3>
   </div>
   <div class="modal-body">
     <%= form_tag xdata_mining_health_facilities_path, :html => { :class => 'form-vertical' } do |f| %>
       <label>Select data model</label>
       <%= select_tag :data_model, options_for_select([['Diseases', 'diseases']]) %>
       <label>Min items</label>
-      <%= text_field_tag :min_items  %>
+      <%= text_field_tag :min_items, "2"  %>
       <label>Max items</label>
-      <%= text_field_tag :max_items %>
+      <%= text_field_tag :max_items, "5"  %>
       <label>Min support</label>
-      <%= text_field_tag :min_support %>
+      <%= text_field_tag :min_support, "1"  %>
       <label>Max support</label>
-      <%= text_field_tag :max_support %>
+      <%= text_field_tag :max_support, "100"  %>
       <label>Min confidence</label>
-      <%= text_field_tag :min_confidence %>
+      <%= text_field_tag :min_confidence, "20"  %>
   </div>
   <div class="modal-footer">
     <button class="btn" data-dismiss="modal">Close</button>
