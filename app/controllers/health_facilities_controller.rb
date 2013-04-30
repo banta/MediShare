@@ -105,9 +105,9 @@ class HealthFacilitiesController < ApplicationController
 
   def xdata_mining
     #raise params[:min_items].blank?.inspect
-    #respond_to do |format|
+    respond_to do |format|
       if params[:data_model].blank? or params[:min_items].blank? or params[:min_support].blank? or params[:max_support].blank? or params[:min_confidence].blank?
-          #format.html { redirect_to data_mining_health_facilities_path, alert: 'All field are required.' }
+          format.html { redirect_to data_mining_health_facilities_path, alert: 'All field are required.' }
       else
         if params[:data_model] == 'diseases'
           trans = []
@@ -121,12 +121,23 @@ class HealthFacilitiesController < ApplicationController
           confs = [params[:min_items],params[:max_items],params[:min_support],params[:max_support],params[:min_confidence]].to_json
           url = url = "http://localhost:4000/transactions"
           results = RestClient.post url, :trans => trans, :confs => confs
-          #format.json { render json: results }
           
-          render text: results.to_s
-          #format.html { redirect_to data_mining_health_facilities_path, notice: 'Data mining was successful.' }
+          results = JSON.parse(results)
+
+          @data_mining = DataMining.new
+          results.each do |result|
+            @dmresult = @data_mining.dmresults.new(params[:dmresult])
+            @dmresult.rule = result.split(' (')[0]
+            @dmresult.support = result.split(' (')[1].split('/')[0].to_f
+            @dmresult.total = result.split(' (')[1].split('/')[1].split(',')[0].to_f
+            @dmresult.confidence = result.split(' (')[1].split('/')[1].split(',')[1].to_f
+            @dmresult.save
+          end
+          if @data_mining.save
+            format.html {redirect_to data_mining_health_facilities_path, notice: 'Data mining was successful.' }
+          end
         end
       end
-    #end
+    end
   end
 end
