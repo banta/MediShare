@@ -100,6 +100,7 @@ class HealthFacilitiesController < ApplicationController
   end
 
   def data_mining
+    @data_minings = DataMining.all
   end
 
   def xdata_mining
