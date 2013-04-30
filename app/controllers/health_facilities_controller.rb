@@ -103,5 +103,29 @@ class HealthFacilitiesController < ApplicationController
   end
 
   def xdata_mining
+    #raise params[:min_items].blank?.inspect
+    #respond_to do |format|
+      if params[:data_model].blank? or params[:min_items].blank? or params[:min_support].blank? or params[:max_support].blank? or params[:min_confidence].blank?
+          #format.html { redirect_to data_mining_health_facilities_path, alert: 'All field are required.' }
+      else
+        if params[:data_model] == 'diseases'
+          trans = []
+          Prescription.all.each do |p|
+            if p.diseases.collect{|c| c.name}.size > 0
+              trans << p.diseases.collect{|c| c.name}
+            end
+          end
+
+          trans = trans.to_json
+          confs = [params[:min_items],params[:max_items],params[:min_support],params[:max_support],params[:min_confidence]].to_json
+          url = url = "http://localhost:4000/transactions"
+          results = RestClient.post url, :trans => trans, :confs => confs
+          #format.json { render json: results }
+          
+          render text: results.to_s
+          #format.html { redirect_to data_mining_health_facilities_path, notice: 'Data mining was successful.' }
+        end
+      end
+    #end
   end
 end
