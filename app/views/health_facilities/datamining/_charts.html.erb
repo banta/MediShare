@@ -1,0 +1,113 @@
+<div id="chartContainertwo" style="height: 300px; width: 100%;"></div><br/><br/>
+<div id="chartContainer" style="height: 300px; width: 100%;"></div><br/><br/>
+
+  <script type="text/javascript">
+  window.onload = function () {
+    var chart = new CanvasJS.Chart("chartContainer",
+    {
+      zoomEnabled: true,
+      title:{
+        text: "Data Mining Results Based on Apriori Algorithm",      
+        
+      },
+      axisX: {
+        title:"Confidence %",
+        
+        valueFormatString: "#0'%'",
+        maximum: 100,
+        gridThickness: 1,
+        gridColor: "lightgrey",
+        tickColor: "lightgrey",
+        lineThickness: 0,
+      },
+      axisY:{
+        title: "Support %",              
+        gridThickness: 1,
+        gridColor: "lightgrey",
+        tickColor: "lightgrey",
+        lineThickness: 0,                
+        valueFormatString: "#0'mn'",
+
+      },
+
+      data: [
+      {        
+        type: "bubble",                   
+        toolTipContent: "<span style='\"'color: {color};'\"'><strong>{name}</strong></span><br/><strong>Confidence</strong> {x}% <br/> <strong>Support</strong> {y}%<br/> <strong>Total</strong> {z} mn",
+        dataPoints: [
+        <% @dmresult[0..@dmresult.count-1].each do |dm| %>
+        	{ x: <%= dm.confidence %>, y: <%= dm.support %>, z: <%= dm.total.to_i %>, name: "<%= dm.rule %>" },
+        <% end %>
+
+
+
+
+        ]
+      }
+      ]
+    });
+
+	chart.render();
+
+	//Chart 2
+	var chart = new CanvasJS.Chart("chartContainertwo",
+	{
+	  theme: "theme3",
+	  title:{
+	    text: "Data Mining Results Based on Apriori Algorithm",
+	    fontSize: 30,
+	  },
+	  toolTip: {
+	    shared: true
+	  },
+	  axisY2: {
+	    title: "million barrels/day"
+	  },
+
+	  legend:{
+	    verticalAlign: "top",
+	    horizontalAlign: "center",
+	  },
+	  data: [
+	  <%# @dmresult.each do |dm| %>
+	  	
+	  	{
+	  	  type: "column", 
+	  	  name: "Support",
+	  	  legendText: "Support",
+	  	  showInLegend: true, 
+	  	  dataPoints:[
+	  	  <% @dmresult.each do |i| %>
+	  	  	{label: "<%= i.rule.html_safe %>", y: <%= i.support %>},
+	  	  <% end %>]
+	  	},
+
+	  	{
+	  	  type: "column", 
+	  	  name: "Total",
+	  	  legendText: "Total",
+	  	  showInLegend: true, 
+	  	  dataPoints:[
+	  	  <% @dmresult.each do |i| %>
+	  	  	{label: "<%= i.rule.html_safe %>", y: <%= i.total %>},
+	  	  <% end %>]
+	  	},
+
+	  	{
+	  	  type: "column", 
+	  	  name: "Confidence",
+	  	  legendText: "Confidence",
+	  	  showInLegend: true, 
+	  	  dataPoints:[
+	  	  <% @dmresult.each do |i| %>
+	  	  	{label: "<%= i.rule.html_safe %>", y: <%= i.confidence %>},
+	  	  <% end %>]
+	  	},
+	  <%# end %>
+	  
+	  ]
+	});	    
+
+	chart.render();
+}
+</script>
