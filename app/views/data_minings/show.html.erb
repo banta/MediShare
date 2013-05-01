@@ -1,5 +1,28 @@
-<p id="notice"><%= notice %></p>
+<%= render "health_facilities/datamining/charts" %>
+<%#= render "health_facilities/datamining/chart2" %>
+
+<table class="table table-striped table-bordered table-hover">
+  <thead class="well">
+    <tr>
+      <th>Rules</th>
+      <th>Support</th>
+      <th>Total</th>
+      <th>Confidence</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @dmresult.each do |dmresult| %>
+      <tr>
+        <td><%= dmresult.rule %></td>
+        <td><%= dmresult.support %></td>
+        <td><%= dmresult.total %></td>
+        <td><%= dmresult.confidence %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'Back', data_mining_health_facilities_path, :class => "btn btn-primary" %>
 
 
-<%= link_to 'Edit', edit_data_mining_path(@data_mining) %> |
-<%= link_to 'Back', data_minings_path %>
+

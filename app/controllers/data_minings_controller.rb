@@ -14,6 +14,7 @@ class DataMiningsController < ApplicationController
   # GET /data_minings/1.json
   def show
     @data_mining = DataMining.find(params[:id])
+    @dmresult = @data_mining.dmresults
 
     respond_to do |format|
       format.html # show.html.erb
