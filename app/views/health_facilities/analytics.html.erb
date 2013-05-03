@@ -2,18 +2,20 @@
   <h1>Analytics</h1>
 </div>
 
-<% if current_user.has_role? :user %>
-  <div class="navbar">
-    <div class="navbar-inner">
-      <ul class="nav">
+<div class="navbar">
+  <div class="navbar-inner">
+    <ul class="nav">
+      <% if current_user.has_role? :user %>
         <li><%= link_to 'My Health Facility', health_facility_path(HealthFacility.find_by_user_id(current_user)) %></li>
         <li><%= link_to 'My Patients', patients_path %></li>
+      <% elsif current_user.has_role? :admin %>
+        <li><%= link_to 'Health Facilities', health_facilities_path %></li>
         <li class="active"><%= link_to 'Analytics', analytics_health_facilities_path %></li>
         <li><%= link_to 'Data Mining', data_mining_health_facilities_path %></li>
-      </ul>
-    </div>
+      <% end %>
+    </ul>
   </div>
-<% end %>
+</div>
 
 <%= form_tag analytics_health_facilities_path, :class=>"navbar-search pull-left", :method => :get do %>
   <%= text_field_tag :search, params[:search], :class=>"search-query", :placeholder=>"Search the location" %>
